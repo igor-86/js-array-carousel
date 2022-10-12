@@ -31,25 +31,31 @@ items[sliderPosition].classList.add("active");
 
 //Settare freccia next
 const nextBtn = document.querySelector(".bottom-chev");
+const prevBtn = document.querySelector(".top-chev");
+prevBtn.classList.add("hidden");
 
 //Event
 nextBtn.addEventListener("click", function(){
     
-    items[sliderPosition].classList.remove("active");
-    
-    sliderPosition = sliderPosition + 1;
+        prevBtn.classList.remove("hidden");
 
-    items[sliderPosition].classList.add("active");
+        items[sliderPosition].classList.remove("active");
+        
+        sliderPosition = sliderPosition + 1;
+
+        items[sliderPosition].classList.add("active");
+    
+        if (sliderPosition === (items.length - 1)) {
+            nextBtn.classList.add("hidden");
+        }
    
-    if (sliderPosition === (items.length - 1)) {
-        nextBtn.classList.add("hidden");
-    }
+
 })
 
 
 
 //Settare freccia prev indietro
-const prevBtn = document.querySelector(".top-chev");
+
 
 //event
 prevBtn.addEventListener("click", function(){
@@ -60,9 +66,8 @@ prevBtn.addEventListener("click", function(){
         items[sliderPosition].classList.add("active");
 
         nextBtn.classList.remove("hidden");
-        
-
-    }
+    } 
+    
 })
 
 
