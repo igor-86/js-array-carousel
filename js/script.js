@@ -61,11 +61,14 @@ nextBtn.addEventListener("click", function(){
 prevBtn.addEventListener("click", function(){
     if(sliderPosition > 0){
         items[sliderPosition].classList.remove("active");
-        sliderPosition = sliderPosition - 1;
+        sliderPosition--;
 
         items[sliderPosition].classList.add("active");
 
         nextBtn.classList.remove("hidden");
+        if (sliderPosition === 0) {
+            prevBtn.classList.add("hidden");
+        }
     } 
     
 })
