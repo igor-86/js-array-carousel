@@ -32,9 +32,37 @@ items[sliderPosition].classList.add("active");
 //Settare freccia next
 const nextBtn = document.querySelector(".bottom-chev");
 
+//Event
+nextBtn.addEventListener("click", function(){
+    
+    items[sliderPosition].classList.remove("active");
+    
+    sliderPosition = sliderPosition + 1;
+
+    items[sliderPosition].classList.add("active");
+   
+    if (sliderPosition === (items.length - 1)) {
+        nextBtn.classList.add("hidden");
+    }
+})
 
 
 
-//Settare freccia prev 
+//Settare freccia prev indietro
 const prevBtn = document.querySelector(".top-chev");
-console.log(prevBtn,nextBtn);
+
+//event
+prevBtn.addEventListener("click", function(){
+    if(sliderPosition > 0){
+        items[sliderPosition].classList.remove("active");
+        sliderPosition = sliderPosition - 1;
+
+        items[sliderPosition].classList.add("active");
+
+        nextBtn.classList.remove("hidden");
+        
+
+    }
+})
+
+
