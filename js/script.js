@@ -32,22 +32,25 @@ items[sliderPosition].classList.add("active");
 //Settare freccia next
 const nextBtn = document.querySelector(".bottom-chev");
 const prevBtn = document.querySelector(".top-chev");
-prevBtn.classList.add("hidden");
+
 
 //Event
 nextBtn.addEventListener("click", function(){
-    
-        prevBtn.classList.remove("hidden");
+        
+        if (sliderPosition < (items.length - 1)){
 
         items[sliderPosition].classList.remove("active");
         
         sliderPosition = sliderPosition + 1;
 
         items[sliderPosition].classList.add("active");
-    
-        if (sliderPosition === (items.length - 1)) {
-            nextBtn.classList.add("hidden");
+        } else {
+            items[sliderPosition].classList.remove("active");
+            sliderPosition = 0;
+            items[sliderPosition].classList.add("active");
         }
+    
+       
    
 
 })
@@ -65,11 +68,12 @@ prevBtn.addEventListener("click", function(){
 
         items[sliderPosition].classList.add("active");
 
-        nextBtn.classList.remove("hidden");
-        if (sliderPosition === 0) {
-            prevBtn.classList.add("hidden");
-        }
-    } 
+        
+    } else {
+        items[sliderPosition].classList.remove("active");
+        sliderPosition = items.length - 1;
+        items[sliderPosition].classList.add("active");
+    }
     
 })
 
